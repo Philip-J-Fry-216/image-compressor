@@ -28,6 +28,29 @@ export function setupUI() {
   // ===== Dropzone =====
   dropzone.addEventListener("click", () => fileInput.click());
 
+  fileInput.addEventListener("change", (e) => {
+    const newFiles = Array.from(e.target.files);
+
+    newFiles.forEach(file => {
+      if (!file.type.startsWith("image/")) return;
+
+      const item = {
+        id: crypto.randomUUID(),
+        file,
+        status: "idle",
+        result: null,
+        settingsHash: null
+      };
+
+      fileQueue.push(item);
+      addFileCard(item);
+    });
+
+    processBtn.disabled = fileQueue.length === 0;
+    fileInput.value = "";
+  });
+
+
   // ===== Drag & Drop =====
   // ===== Global Drag & Drop =====
   let dragCounter = 0;
