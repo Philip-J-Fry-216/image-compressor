@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Compressor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="js/app.js" type="module"></script>
+  <script src="/js/worker.js" type="module"></script>
+  <script src="/js/ui.js" type="module"></script>
+</head>
+
+<body>
+
+  <main class="app">
+    <h1>Image Compressor</h1>
+
+    <div class="dropzone" id="dropzone">
+      <p>Drop image here or click to upload</p>
+      <input type="file" id="fileInput" accept="image/*" multiple hidden />
+
+    </div>
+    <section class="controls">
+
+      <label>
+        Output format:
+        <select id="format">
+          <option value="original">Original</option>
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp" selected>WebP</option>
+          <option value="image/avif">AVIF</option>
+        </select>
+      </label>
+
+      <label>
+        Compression:
+        <select id="qualityPreset">
+          <option value="original">Original (no compression)</option>
+          <option value="85">High quality</option>
+          <option value="70" selected>Balanced</option>
+          <option value="50">Strong compression</option>
+          <option value="30">Extreme compression</option>
+          <option value="manual">Manual</option>
+        </select>
+        <div id="manualQuality" class="manual-quality" hidden>
+          <label>
+            Quality:
+            <input type="range" id="manualQualityRange" min="10" max="95" value="75" />
+            <span id="manualQualityValue">75</span>
+          </label>
+        </div>
+      </label>
+
+      <!-- <label>
+        Sizes (px):
+        <input type="text" id="sizes" value="1024" />
+      </label> -->
+
+      <button id="processBtn" disabled>Compress</button>
+      <button id="downloadAllBtn" disabled>Download all</button>
+    </section>
+
+    <section class="files" id="fileList"></section>
+    <section class="output" id="output"></section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+</body>
+
+</html>

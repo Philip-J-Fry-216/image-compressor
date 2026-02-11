@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.app {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.dropzone {
+  border: 2px dashed #38bdf8;
+  padding: 60px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  margin-bottom: 20px;
+}
+
+body.dragover {
+ opacity: 0.5;
+}
+
+body.dragover .dropzone {
+  opacity: 0.5;
+  border-color: #38bdf8;
+}
+
+.controls {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px;
+  background: #38bdf8;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#downloadAllBtn {
+  margin-top: 10px;
+  background: #22c55e;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.processing {
+  background: #f59e0b;
+  color: #000;
+}
+
+.output {
+  background: #020617;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+.files {
+  display: grid;
+  gap: 15px;
+}
+
+.file-card {
+  background: #020617;
+  padding: 10px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.file-card img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.progress {
+  height: 6px;
+  background: #1e293b;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #38bdf8;
+  transition: width 0.2s;
+}
+
+.download-btn {
+  padding: 6px 10px;
+  background: #22c55e;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.formats {
+  display: flex;
+  gap: 15px;
+}
+
+.file-card.done {
+  border: 1px solid #22c55e;
+}
+
+.file-info {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.manual-quality {
+  margin-top: 10px;
+}
+
+.file-info {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.file-info.good {
+  color: #22c55e;
+}
+
+.file-info.bad {
+  color: #ef4444;
+}
